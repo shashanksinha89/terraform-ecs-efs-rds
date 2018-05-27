@@ -36,6 +36,30 @@ export AWS_PROFILE=your_profile_name
 
 ## Use
 
+* Update values accordingly for cluster in variable.tf
+
+```
+variable "ecs-cluster-name" {
+    description = "The name for the cluster."
+    default = "demo-ecs-cluster"
+}
+
+variable "ecs-key-pair-name" {
+    description = "The name for the cluster."
+    default = "demo"
+}
+
+```
+
+* RDS details are mentioned terraform.tavars
+
+```
+production_database_name      = "dummy_data"
+production_database_username  = "demo"
+production_database_password  = "defaultpassword"
+
+```
+
 * Deploy all the infrastructure needed on AWS using Terraform.
 
 ```
