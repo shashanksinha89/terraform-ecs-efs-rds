@@ -45,7 +45,6 @@ export AWS_PROFILE=your_profile_name
 
 ```
 
-Once deployed, Terraform will display the ECS Container Instances public IPs and the [ELB](https://aws.amazon.com/es/elasticloadbalancing/) URL that will distribute the traffic across the different Wordpress container instances.
 
 The RDS connection parameters will be passed on runtime to the Wordpress containers via environment variables.
 
