@@ -39,6 +39,7 @@ export AWS_PROFILE=your_profile_name
 * Deploy all the infrastructure needed on AWS using Terraform.
 
 ```
+# terraform get
 # terraform init
 # terraform plan -out config
 # terraform apply config
