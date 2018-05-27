@@ -81,3 +81,6 @@ Configure and launch RDS.
 ```
 terraform apply -target=module.rds
 ```
+
+## Author
+[**Shashank Sinha**] <sinha.shashank.1989@gmail.com>
