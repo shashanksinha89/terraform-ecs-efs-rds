@@ -16,14 +16,14 @@ This repository contains `Terrorform` configuration files to deploy data-persist
 
 To use this example you will need an [AWS](https://aws.amazon.com/es/) account and:
 
-Export AWS Credentials
+Export AWS Credentials or AWS profile.
 
 ```
 export AWS_ACCESS_KEY_ID=your_access_key
 export AWS_SECRET_ACCESS_KEY=your_secret_access_key
 
 ```
-If you are maintaing multiple aws profile, export required [AWS Named profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)
+If you are maintaining multiple aws profile, export required [AWS Named profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)
 
 ```
 export AWS_PROFILE=your_profile_name
@@ -39,13 +39,13 @@ export AWS_PROFILE=your_profile_name
 * Deploy all the infrastructure needed on AWS using Terraform.
 
 ```
-# terraform get
 # terraform init
 # terraform plan -out config
 # terraform apply config
 
 ```
 
+ Once deployed, open `ALB DNS` on browser. It will start the wordpress application setup.
 
 The RDS connection parameters will be passed on runtime to the Wordpress containers via environment variables.
 
