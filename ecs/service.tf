@@ -34,6 +34,19 @@ resource "aws_alb_listener" "alb-listener" {
     }
 }
 
+resource "aws_alb_listener" "https-listener" {
+    load_balancer_arn = "${aws_alb.ecs-load-balancer.arn}"
+    port              = "443"
+    protocol          = "HTTPS"
+    ssl-policy        = "ELBSecurityPolicy-2016-08"
+    certificate_arn   = "arn:aws:acm:us-west-1:812992951157:certificate/f22d0b89-ff88-40ff-ab2c-918b1ca2323b"
+
+    default_action {
+        target_group_arn = "${aws_alb_target_group.ecs-target_group.arn}"
+        type             = "forward"
+    }
+}
+
 output "ecs-load-balancer-name" {
   value = "${aws_alb.ecs-load-balancer.name}"
 }
@@ -63,7 +76,7 @@ resource "aws_ecs_service" "demo-ecs-service" {
   	cluster         = "${aws_ecs_cluster.demo-ecs-cluster.id}"
   	task_definition = "${aws_ecs_task_definition.demo-sample-definition.arn}"
   	desired_count   = 1
-    depends_on      = ["aws_alb_listener.alb-listener"]
+    depends_on      = ["aws_alb_listener.https-listener"]
 
   	load_balancer {
     	#target_group_arn  = "${var.ecs-target-group-arn}"
